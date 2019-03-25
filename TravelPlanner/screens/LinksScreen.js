@@ -25,16 +25,24 @@ export default class LinksScreen extends React.Component {
 
   };
 
+
+  constructor(props) {
+    super(props);
+    const comments = [
+      {reply: 'Monday'},
+      {reply: 'Tuesday'},
+      {reply: 'Wednesday'}];
+    this.state = {
+      comments: comments
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <FlatList
-          data={[
-            {key: 'Monday'},
-            {key: 'Tuesday'},
-            {key: 'Wednesday'},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          data={this.state.comments}
+          renderItem={({item}) => <Text style={styles.item}>{item.reply}</Text>}
         />
       </View>
     );
